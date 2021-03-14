@@ -1,6 +1,7 @@
 import React from 'react';
-import userMenuUp from '../images/userMenuUp.svg';
-import userMenuDown from '../images/userMenuDown.svg';
+import userMenuUp from '../../images/userMenuUp.svg';
+import userMenuDown from '../../images/userMenuDown.svg'
+
 
 class Header extends React.Component {
     constructor (props) {

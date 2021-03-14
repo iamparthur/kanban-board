@@ -134,10 +134,11 @@ h1 {
 
 .headerConteinerBlock {
   margin: 8px;
+  cursor: pointer;
 }
 
 .delTaskFromTable {
-  background-image:url(./components/images/cross.png);
+  background-image:url(./images/cross.png);
   background-size: cover;
   width: 30px;
   height: 30px;
