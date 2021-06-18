@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+Что умеет приложение:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Можно добавлять и переносить (в соответствии с ТЗ) задачи;
+Каждая задача кликабельна. Открывается отдельная страница с подробной информацией. Можно редактировать задачи (название и описание);
+Ведётся подсчет текущих и выполненных задач;
+Данные хранятся в local storage. При первом запуске забиваются mock данными.
+Основные задачи
 
-## Available Scripts
+Развернуть приложение с использованием Create React app.
+Следуя правилам компонентного подхода, разбить kanban board на смысловые блоки, сверстать.
+Реализовать некоторый функционал.
+Макет здесь: https://www.figma.com/file/yotdhAHetNQZy1tOi1UTPk/Kanban.
 
-In the project directory, you can run:
+Требования к верстке и CSS
 
-### `npm start`
+Соблюдайте семантическую вёрстку. Кнопка должна быть button, элементы дропдауна списком и так далее.
+Учитывайте состояния кнопки «+ Add card» — active и disable. Если кнопка активна, при наведении должна подсвечиваться, курсор меняться на pointer; Если кнопка задизейблена (неактивна), её цвет должен отличаться от обычного состояния, при наведении курсор не меняется, hover не применяется; В обычном состоянии кнопка должна соответствовать макету.
+При выборе списка задач из дропдауна (наведении, клике) применяйте эффекты, например, выделять цветом, менять курсор на pointer.
+Использовать селекторы по тегу для задания стилей нельзя. Используйте классы.
+Требования к React JS Используйте умные и глупые компоненты, продумывайте, что вы будете переиспользовать При написании умных компонентов, выберите предпочтительный способ — хуки или классы. Рекомендуется использовать классы. При желании и возможности можно дополнительно реализовать вариант на хуках. Следуйте принципам модульности (используйте export, import). Подумайте о том, как верно реализовать файловую структуру. Используйте Children API для вывода задач. Используйте Synthetic events для работы с событиями. Используйте условный рендеринг для вывода user-menu. Постарайтесь использовать паттерны при разработке (render prop, HOC). Задание 1: Добавление новой задачи в список Исходная Канбан-доска должна иметь 4 блока задач: Backlog (задачи, которые требуют уточнения перед тем, как брать их в работу); Ready (задачи, которые могут быть взяты в работу); In progress (задачи, которые уже в работе); Finished (законченные задачи). 0*. Перед началом работы можно создать заглушку — mock объект с необходимыми данными, вида:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+const dataMock = [ { title: 'backlog', issues: [ { id: 'task1' name: 'Sprint bugfix' } ], }, // code ]
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Первоначально задача размещается в бэклоге — для анализа. При клике на кнопку «+ Add card» должно появляться новое поле в конце списка, между последней задачей и кнопкой, для которого реализована возможность ввода. При этом кнопка «+ Add card» должна меняться на «Submit»
+Созданные задачи должны сохраняться в localStorage.
 
-### `npm test`
+Алгоритм:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Нажали кнопку — появилось поле для редактирования — ввели название — нажали кнопку «Submit» или ушли с поля (расфокусировались, кликнули и так далее) — название сохранилось — задача появилась в бэклоге.
+Задачи для списка Ready берутся из Backlog. При клике на «+ Add card» в этом списке, должна быть предоставлена возможность выбора задач из Backlog из дропдауна. При клике на кнопку в конце списка, между последней задачей и кнопкой появляется дропдаун с возможными вариантами. После клика на задачу из дропдауна, она должна появиться в списке последней.
+Задачи для списка In progress берутся из Ready. Реализация, аналогичная п.2.
+Задачи для списка Finished берутся из In progress. Реализация, аналогичная п.2.
+Если задач в списках Backlog, In progress, Ready — нет, кнопку нужно задизейблить (убрать возможность клика).
+Когда задача попадает в следующий список, из текущего её нужно удалить. Например, когда в список Ready попадает задача из Backlog, из Backlog она должна быть удалена. По аналогии должно быть реализовано и для других списков.
+Добавить вывод активных и завершенных задач в футер. Active tasks — количество задач из Бэклога. Finished tasks — количество задач из списка Finished. Задание 2: Добавление user menu Реализуйте выпадающий список, который будет появляться при клике на блок в правом верхнем углу — контейнер с аватаром пользователя и стрелочкой. Дизайн вы можете найти по ссылке в начале документа. Содержание — произвольное, пример — My account, My tasks, Log out; Необходимо придерживаться стилей, которые используются в макете, а именно — цветовая гамма, шрифты, отступы; Стрелочка рядом с аватаром должна смотреть вверх, когда меню открыто, и вниз (как на макете), когда меню закрыто. Добавить выделение пунктов меню (например, hover, cursor). Задание 3: Добавление роутинга Добавьте возможность перехода на отдельную страницу какого-либо блока при клике на его заголовок. Страница должна содержать в блоке main интерфейс, дизайн которого вы можете найти по ссылке в начале документа. Список задач выведен с подробной информацией о каждой задаче — временем создания, пошаговым описанием того, что нужно сделать.
